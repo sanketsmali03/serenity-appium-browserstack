@@ -17,9 +17,9 @@ public class BrowserStackSerenityDriver implements DriverSource {
         EnvironmentVariables environmentVariables = SystemEnvironmentVariables.createEnvironmentVariables();
 
 
-      //  String username = GetInfoBrowserStack.getName();
+        String username = GetInfoBrowserStack.getName();
 
-       // String accessKey = GetInfoBrowserStack.getKey();
+        String accessKey = GetInfoBrowserStack.getKey();
         String environment = System.getProperty("environment");
         System.out.println("environment is " + environment);
         DesiredCapabilities capabilities = new DesiredCapabilities();
@@ -53,7 +53,7 @@ public class BrowserStackSerenityDriver implements DriverSource {
         }
         capabilities.setCapability("app", "bs://e324e0ffe83b2936cd072d75e565c4666767157c");
         try {
-            AndroidDriver<AndroidElement> driver = new AndroidDriver<AndroidElement>(new URL("https://" + "sanketmali4" + ":" + "XaqpcHttuyFzXSzC3uNM" + "@hub-cloud.browserstack.com/wd/hub"), capabilities);
+            AndroidDriver<AndroidElement> driver = new AndroidDriver<AndroidElement>(new URL("https://" + username + ":" + accessKey + "@hub-cloud.browserstack.com/wd/hub"), capabilities);
             return driver;
 
         } catch (Exception e) {
